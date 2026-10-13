@@ -10,11 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+<style>
+    .made-for { color: #c62828; font-weight: 700; }
+  </style>
 </head>
 <body>
   <div class="ambient-stars" aria-hidden="true"></div>
   <button class="music" id="musicBtn" type="button" aria-label="Play background music" title="Play or pause Sunshine by Scandinavianz">♪</button>
-  <audio id="bgMusic" src="assets/sunshine-scandinavianz.mp3" preload="metadata" loop></audio>
+  <audio id="bgMusic" src="assets/children.mp3" preload="auto" autoplay loop></audio>
 
   <main>
     <!-- COVER -->
@@ -87,7 +90,7 @@
           <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Apitong%20St.%20Purok%201%2C%20Brgy.%20Fabrica%2C%20San%20Vicente%2C%20Camarines%20Norte">View Map ↗</a>
         </article>
       </div>
-      <p class="shared-map"><a href="https://maps.app.goo.gl/kLJXy1bmCdLhvvL86?g_st=ac" target="_blank" rel="noopener">Open the Saint Jude Thaddeus Chapel map pin ↗</a></p>
+      <p class="shared-map"><a href="https://maps.app.goo.gl/HDguZ8hzWKku289g8?g_st=ac" target="_blank" rel="noopener">Open the Saint Jude Thaddeus Chapel map pin ↗</a></p>
     </section>
 
     <!-- DRESS CODE / RSVP -->
@@ -173,11 +176,6 @@
         <figure><img src="assets/dos-white-smile.jpg" alt="Dos smiling in a white dress"><figcaption>Beautiful Dos</figcaption></figure>
         <figure><img src="assets/dos-chair.jpg" alt="Dos sitting on a chair"><figcaption>Little moments</figcaption></figure>
         <figure><img src="assets/dos-chair-2.jpg" alt="Dos sitting on a chair"><figcaption>A precious memory</figcaption></figure>
-        <figure><img src="assets/nayah-daddy.png" alt="Nayah with Daddy"><figcaption>Daddy’s little girl</figcaption></figure>
-        <figure><img src="assets/nayah-mommy.png" alt="Nayah with Mommy"><figcaption>Mommy’s little girl</figcaption></figure>
-        <figure><img src="assets/nayah-church.png" alt="Nayah at church"><figcaption>A beautiful blessing</figcaption></figure>
-        <figure><img src="assets/nayah-ride.jpg" alt="Nayah enjoying a ride"><figcaption>Little rider</figcaption></figure>
-        <figure class="wide"><img src="assets/sisters-playground.png" alt="Dos and Nayah at the playground"><figcaption>Playtime together</figcaption></figure>
       </div>
     </section>
 
@@ -191,7 +189,7 @@
         <details><summary>How do I RSVP?</summary><p>Scan the RSVP QR code or tap the RSVP button above to open the Google Form and confirm your attendance by October 25, 2026. You may also contact Leony Flor E. Carani at <a href="tel:+639678591070">0967 859 1070</a>.</p></details>
         <details><summary>What should I wear?</summary><p>Please wear colors that match the soft Christening theme, such as ivory, white, blush pink, champagne, beige, soft blue, or other gentle pastel shades.</p></details>
         <details><summary>Can I see the invitation on my phone?</summary><p>Yes. This invitation is designed to be mobile-friendly and can be opened from a phone browser.</p></details>
-        <details><summary>What song was chosen for the invitation?</summary><p>The selected song is “Sunshine” by Scandinavianz. Tap the music button to play or pause the song.</p></details>
+        <details><summary>What song was chosen for the invitation?</summary><p>The selected song is “Children” by The_Mountain. Tap the music button to play or pause the song.</p></details>
       </div>
     </section>
 
@@ -202,13 +200,28 @@
         <p class="eyebrow">A DAY TO REMEMBER</p>
         <h2>May they always<br>walk in His light.</h2>
         <p>Thank you for surrounding our family with your love, prayers, and support as we celebrate this beautiful new beginning.</p>
-        <b>Dos &amp; Nayah</b>
+        <b>Dos &amp; Nayah Christening</b>
         <div class="closing-date">28 · 10 · 2026</div>
       </div>
     </section>
 
-    <footer>Made with love for <strong>Serenity Dos C. Zara</strong> &amp; <strong>San Xianayah C. Zara</strong> · 2026<br><span class="music-credit">Selected music: “Sunshine” by Scandinavianz</span></footer>
+    <footer><span class="made-for">Made with love for Serenity Dos and San Xianayah by Papa and Mama</span> · 2026<br><span class="music-credit">Selected music: “Children” by The_Mountain</span></footer>
   </main>
+  <script>
+    // Try to start the invitation music automatically. Modern mobile browsers may
+    // block audible autoplay; if blocked, start it on the visitor's first tap.
+    (function () {
+      const music = document.getElementById('bgMusic');
+      if (!music) return;
+      const startMusic = () => {
+        music.play().catch(() => {});
+      };
+      startMusic();
+      ['pointerdown', 'touchstart', 'click', 'keydown'].forEach(eventName => {
+        document.addEventListener(eventName, startMusic, { once: true, passive: true });
+      });
+    })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
