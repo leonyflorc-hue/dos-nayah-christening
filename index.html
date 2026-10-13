@@ -10,13 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-<style>
-    .made-for { color: #c62828; font-weight: 700; }
-  </style>
 </head>
 <body>
   <div class="ambient-stars" aria-hidden="true"></div>
-  <button class="music" id="musicBtn" type="button" aria-label="Play background music" title="Play or pause Sunshine by Scandinavianz">♪</button>
+  <button class="music" id="musicBtn" type="button" aria-label="Play background music" title="Play or pause background music">♪</button>
   <audio id="bgMusic" src="assets/children.mp3" preload="auto" autoplay loop></audio>
 
   <main>
@@ -79,7 +76,7 @@
           <h4>St. Jude Thaddeus Chapel</h4>
           <p>Wednesday, October 28, 2026<br><strong>7:30 AM</strong></p>
           <p>Brgy. Fabrica, San Vicente, Camarines Norte</p>
-          <a target="_blank" rel="noopener" href="https://maps.app.goo.gl/spRAUaPKPMREtKgH9">View Map ↗</a>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=St.%20Jude%20Thaddeus%20Chapel%2C%20Brgy.%20Fabrica%2C%20San%20Vicente%2C%20Camarines%20Norte">View Map ↗</a>
         </article>
         <article class="location-card">
           <span class="number">02</span>
@@ -167,15 +164,23 @@
       <h2>Dos &amp; Nayah</h2>
       <p class="lead">A growing collection of sweet memories. More photos can be added anytime.</p>
       <div class="gallery-grid">
-        <figure><img src="assets/nayah-main.png" alt="Nayah enjoying a swim"><figcaption>Little adventurer</figcaption></figure>
-        <figure><img src="assets/nayah-mommy.png" alt="Nayah smiling in red"><figcaption>Sweet Nayah</figcaption></figure>
-        <figure><img src="assets/nayah-daddy.png" alt="Nayah at school"><figcaption>Little school days</figcaption></figure>
+        <!-- Original gallery photos: keep these -->
+        <figure><img src="assets/nayah-swim.jpg" alt="Nayah enjoying a swim"><figcaption>Little adventurer</figcaption></figure>
+        <figure><img src="assets/nayah-red.jpg" alt="Nayah smiling in red"><figcaption>Sweet Nayah</figcaption></figure>
+        <figure><img src="assets/nayah-school.jpg" alt="Nayah at school"><figcaption>Little school days</figcaption></figure>
         <figure class="wide"><img src="assets/sisters-1.jpg" alt="Dos and Nayah together"><figcaption>Little sisters</figcaption></figure>
         <figure class="wide"><img src="assets/sisters-2.jpg" alt="Dos and Nayah together"><figcaption>Together</figcaption></figure>
         <figure><img src="assets/dos-white-full.png" alt="Dos in a white dress"><figcaption>Sweet Dos</figcaption></figure>
         <figure><img src="assets/dos-white-smile.jpg" alt="Dos smiling in a white dress"><figcaption>Beautiful Dos</figcaption></figure>
         <figure><img src="assets/dos-chair.jpg" alt="Dos sitting on a chair"><figcaption>Little moments</figcaption></figure>
         <figure><img src="assets/dos-chair-2.jpg" alt="Dos sitting on a chair"><figcaption>A precious memory</figcaption></figure>
+
+        <!-- Five additional photos: added without replacing the originals -->
+        <figure><img src="assets/nayah-main.png" alt="Nayah in her white dress"><figcaption>Our sweet Nayah</figcaption></figure>
+        <figure><img src="assets/nayah-mommy.png" alt="Nayah with Mommy"><figcaption>Mommy's little love</figcaption></figure>
+        <figure><img src="assets/nayah-daddy.png" alt="Nayah with Daddy"><figcaption>Daddy's little girl</figcaption></figure>
+        <figure><img src="assets/nayah-church.png" alt="Nayah at church"><figcaption>A little blessing</figcaption></figure>
+        <figure><img src="assets/nayah-ride.jpg" alt="Nayah on a ride"><figcaption>Little adventures</figcaption></figure>
       </div>
     </section>
 
@@ -200,22 +205,19 @@
         <p class="eyebrow">A DAY TO REMEMBER</p>
         <h2>May they always<br>walk in His light.</h2>
         <p>Thank you for surrounding our family with your love, prayers, and support as we celebrate this beautiful new beginning.</p>
-        <b>Dos &amp; Nayah Christening</b>
+        <b>Dos &amp; Nayah</b>
         <div class="closing-date">28 · 10 · 2026</div>
       </div>
     </section>
 
-    <footer><span class="made-for">Made with love for Serenity Dos and San Xianayah by Papa and Mama</span> · 2026<br><span class="music-credit">Selected music: “Children” by The_Mountain</span></footer>
+    <footer><span class="made-for" style="color:#c62828;font-weight:700">Made with love for Serenity Dos and San Xianayah by Papa and Mama</span> · 2026<br><span class="music-credit">Selected music: “Children” by The_Mountain</span></footer>
   </main>
   <script>
-    // Try to start the invitation music automatically. Modern mobile browsers may
-    // block audible autoplay; if blocked, start it on the visitor's first tap.
+    // Attempt autoplay; mobile browsers may require the visitor to tap the music button.
     (function () {
       const music = document.getElementById('bgMusic');
       if (!music) return;
-      const startMusic = () => {
-        music.play().catch(() => {});
-      };
+      const startMusic = () => music.play().catch(() => {});
       startMusic();
       ['pointerdown', 'touchstart', 'click', 'keydown'].forEach(eventName => {
         document.addEventListener(eventName, startMusic, { once: true, passive: true });
